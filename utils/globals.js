@@ -1,5 +1,11 @@
 export const COLOR_MODE_FALLBACK = 'dark'
 
+/**
+ * @description
+ * This function is used to get the total score of a movie or serie.
+ *
+ * @returns {int}
+ */
 export function score(post) {
   // iterate over the seen_by field and get the sum of the number after the * from the seen_by field
   let score = 0
