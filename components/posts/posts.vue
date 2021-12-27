@@ -1,7 +1,7 @@
 <template>
   <ul v-if="posts.length > 0" class="cards">
     <li v-for="(post, index) in posts" :key="index">
-      <nuxt-link :to="`${postType}/${post.slug}`" class="card card--clickable">
+      <nuxt-link :to="`/${post.slug}`" class="card card--clickable">
         <template v-if="postType === 'projects'">
           <span class="flex-1">
             <h6 class="inline-block py-1 px-2 mr-1 bg-gray text-white text-sm font-medium rounded-sm">

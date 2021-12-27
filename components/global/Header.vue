@@ -4,9 +4,6 @@
       <li class="flex-2">
         <nuxt-link class="btn block" to="/">Home</nuxt-link>
       </li>
-      <li class="flex-2 ml-2">
-        <nuxt-link class="btn block" to="/admin">Login</nuxt-link>
-      </li>
     </ul>
   </nav>
 </template>
