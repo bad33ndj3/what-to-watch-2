@@ -7,7 +7,9 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix .",
+    "format": "prettier .  --write"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "netlify-cli": "^8.4.2",
+    "eslint-plugin-vue": "^8.2.0",
     "nuxt-purgecss": "^1.0.0",
     "postcss": "^8.3.11",
     "postcss-easing-gradients": "^3.0.1",
