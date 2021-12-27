@@ -4,13 +4,12 @@
       <nuxt-link :to="`/${post.slug}`" class="card card--clickable">
         <template v-if="postType === 'series'">
           <span class="flex-1">
-            <h6 class="inline-block py-1 px-2 mr-1 bg-gray text-white text-sm font-medium rounded-sm">
+            <h3 class="card-title">{{ post.title }}</h3>
+            <img v-if="post.cover" class="cover-image" :src="post.cover" />
+            <h6 class="inline-block py-1 px-2 mr-1 mt-2 bg-gray text-white text-sm font-medium rounded-sm">
               {{ post.category }}
             </h6>
-            <h3 class="card-title">{{ post.title }}</h3>
-            <p class="mt-2">{{ post.description }}</p>
           </span>
-          <img v-if="post.cover" class="cover-image" :src="post.cover" />
         </template>
 
         <template v-else>
@@ -19,7 +18,18 @@
               <h3 class="card-title">{{ post.title }}</h3>
               <h6
                 v-if="post.createdAt"
-                class="self-start inline-block mt-0 py-1 px-2 bg-gray text-white text-base font-medium rounded-sm whitespace-no-wrap"
+                class="
+                  self-start
+                  inline-block
+                  mt-0
+                  py-1
+                  px-2
+                  bg-gray
+                  text-white text-base
+                  font-medium
+                  rounded-sm
+                  whitespace-no-wrap
+                "
               >
                 {{ formatDate(post.createdAt) }}
               </h6>
@@ -109,3 +119,23 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.cards .card {
+  flex-direction: column;
+}
+.cards .card .cover-image {
+  width: 100%;
+  margin: 0;
+}
+.cards li {
+  margin-top: 0;
+}
+</style>
