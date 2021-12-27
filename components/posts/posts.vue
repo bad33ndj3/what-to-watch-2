@@ -130,6 +130,9 @@ export default {
 }
 .cards .card {
   flex-direction: column;
+  box-shadow: 2px 5px 8px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  border: 0;
 }
 .cards .card .cover-image {
   width: 100%;
