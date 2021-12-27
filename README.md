@@ -2,7 +2,6 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1482b8b7-eab6-4dae-b6fa-892b1390fafa/deploy-status)](https://app.netlify.com/sites/what-to-watch-sheepduck/deploys)
 
-
 ## Project commands
 
 1. 📦 Install dependencies.

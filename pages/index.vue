@@ -3,10 +3,9 @@
     <section v-if="posts" class="w-full max-w-5xl mx-auto">
       <h1 class="title">Series</h1>
       <div class="search-wrapper">
-        <input v-model="search" type="text" placeholder="Search title.."/>
-        <label>Search title:</label>
+        <input v-model="search" type="text" placeholder="Search title.." />
       </div>
-      <posts post-type="series" :amount="10" :search='search' />
+      <posts post-type="series" :amount="10" :search="search" />
     </section>
   </main>
 </template>
@@ -24,7 +23,7 @@ export default {
   },
   data() {
     return {
-      search: "",
+      search: '',
     }
   },
 }
