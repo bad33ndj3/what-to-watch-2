@@ -9,12 +9,15 @@
         <img v-if="post.cover" class="cover-image" :src="post.cover" />
         <!-- <h6 class="inline py-1 px-2 mr-1 bg-gray text-white text-sm font-medium rounded-sm">{{ post.category }}</h6> -->
         <h2>{{ post.title }}</h2>
-        <p style="margin-bottom: 0.5rem">
-          <em>Created {{ post.dateStr }}</em>
-        </p>
+        <p><a class="link-to-wiki" :href="'https://www.imdb.com/title/' + post.id">IMDB &RightArrow;</a></p>
         <nuxt-content :document="post" />
-        <p><a class="link-to-wiki" :href="'https://www.imdb.com/title/' + post.id">Read more &RightArrow;</a></p>
-        <h3>Genres</h3>
+        <p>kind: {{ post.kind }}</p>
+        <p>category: {{ post.category }}</p>
+        <p>sub_category: {{ post.sub_category }}</p>
+        <h3>Seen by</h3>
+        <ul>
+          <li v-for="seen in post.seen_by">- {{ seen }}</li>
+        </ul>
       </article>
     </section>
   </main>
