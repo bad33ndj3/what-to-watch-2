@@ -130,6 +130,25 @@ export default {
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 650px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 650px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 .cards .card {
   flex-direction: column;
   box-shadow: 2px 5px 8px 2px rgba(0, 0, 0, 0.4);
