@@ -24,9 +24,9 @@ export default {
   async asyncData({ $content, params, error }) {
     let post
     try {
-      post = await $content('projects', params.project).fetch()
+      post = await $content('series', params.project).fetch()
     } catch (e) {
-      error({ message: 'Project not found' })
+      error({ message: 'Series not found' })
     }
     return { post }
   },
