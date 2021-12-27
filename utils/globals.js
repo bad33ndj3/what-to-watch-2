@@ -15,8 +15,5 @@ export function score(post) {
   // divide the sum by the length of the seen_by field
   score = score / post.seen_by.length
 
-  // add the amount of scores to the score
-  score += post.seen_by.length
-
   return score
 }
