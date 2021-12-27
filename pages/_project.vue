@@ -17,7 +17,7 @@
         <p>score: {{ score(post) }}</p>
         <h3>Seen by</h3>
         <ul>
-          <li v-for="seen in post.seen_by">- {{ seen }}</li>
+          <li v-for="seen in post.seen_by" :key="seen">- {{ seen }}</li>
         </ul>
       </article>
     </section>
