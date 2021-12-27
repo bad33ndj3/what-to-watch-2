@@ -7,5 +7,10 @@ export function score(post) {
     score += parseInt(seen.split('*')[1])
   })
   // divide the sum by the length of the seen_by field
-  return score / post.seen_by.length
+  score = score / post.seen_by.length
+
+  // add the amount of scores to the score
+  score += post.seen_by.length
+
+  return score
 }
