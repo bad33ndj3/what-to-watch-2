@@ -84,6 +84,9 @@ export default {
   async mounted() {
     this.loading = true
     this.posts = await this.fetchPosts()
+    this.posts = this.posts.sort((a, b) => {
+      return this.score(b) - this.score(a)
+    })
     this.loading = false
   },
   methods: {
