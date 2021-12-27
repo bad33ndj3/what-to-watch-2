@@ -8,8 +8,11 @@
       <article>
         <img v-if="post.cover" class="cover-image" :src="post.cover" />
         <!-- <h6 class="inline py-1 px-2 mr-1 bg-gray text-white text-sm font-medium rounded-sm">{{ post.category }}</h6> -->
-        <h2>{{ post.title }}</h2>
-        <p><a class="link-to-wiki" :href="'https://www.imdb.com/title/' + post.id">IMDB &RightArrow;</a></p>
+        <div>
+          <h2>{{ post.title }}</h2>
+
+        </div>
+        <a class="link-to-wiki imdb-btn" :href="'https://www.imdb.com/title/' + post.id">IMDb</a>
         <nuxt-content :document="post" />
         <p>kind: {{ post.kind }}</p>
         <p>category: {{ post.category }}</p>
