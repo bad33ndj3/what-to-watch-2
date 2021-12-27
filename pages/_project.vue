@@ -14,6 +14,7 @@
         <p>kind: {{ post.kind }}</p>
         <p>category: {{ post.category }}</p>
         <p>sub_category: {{ post.sub_category }}</p>
+        <p>score: {{ score(post) }}</p>
         <h3>Seen by</h3>
         <ul>
           <li v-for="seen in post.seen_by">- {{ seen }}</li>
@@ -36,5 +37,16 @@ export default {
     }
     return { post }
   },
+  methods: {
+    score(post) {
+      // iterate over the seen_by field and get the sum of the number after the * from the seen_by field
+      let score = 0
+      post.seen_by.forEach(seen => {
+        score += parseInt(seen.split('*')[1])
+      })
+      // divide the sum by the length of the seen_by field
+      return score / post.seen_by.length
+    }
+  }
 }
 </script>

@@ -2,9 +2,9 @@
   <ul v-if="amount > 0" class="cards">
     <li v-for="(post, index) in filteredPosts" :key="index">
       <nuxt-link :to="`/${post.slug}`" class="card card--clickable">
-        <template v-if="postType === 'series'">
+        <template v-if="post.cover">
           <span class="flex-1">
-            <h3 class="card-title">{{ post.title }}</h3>
+            <h3 class="card-title">{{ post.title }} ({{score(post)}})</h3>
             <img v-if="post.cover" class="cover-image" :src="post.cover" />
             <h6 class="inline-block py-1 px-2 mr-1 mt-2 bg-gray text-white text-sm font-medium rounded-sm">
               {{ post.category }}
@@ -99,6 +99,15 @@ export default {
         .fetch()
         .catch((err) => console.error(err) || [])
     },
+    score(post) {
+      // iterate over the seen_by field and get the sum of the number after the * from the seen_by field
+      let score = 0
+      post.seen_by.forEach(seen => {
+        score += parseInt(seen.split('*')[1])
+      })
+      // divide the sum by the length of the seen_by field
+      return score / post.seen_by.length
+    }
   },
 }
 </script>
