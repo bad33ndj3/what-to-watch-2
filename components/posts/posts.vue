@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import { score } from '~/utils/globals.js'
+
 export default {
   name: 'Posts',
   props: {
@@ -102,13 +104,7 @@ export default {
         .catch((err) => console.error(err) || [])
     },
     score(post) {
-      // iterate over the seen_by field and get the sum of the number after the * from the seen_by field
-      let score = 0
-      post.seen_by.forEach(seen => {
-        score += parseInt(seen.split('*')[1])
-      })
-      // divide the sum by the length of the seen_by field
-      return score / post.seen_by.length
+      return score(post)
     }
   },
 }
