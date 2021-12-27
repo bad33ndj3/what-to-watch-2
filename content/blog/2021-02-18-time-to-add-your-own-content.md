@@ -47,7 +47,7 @@ async fetchPosts(
 
 ## Est nec scrobibus Antissa
 
-Duroque *sunt aureus partem* concava soleant et limite frugum Typhoea omnique:
+Duroque _sunt aureus partem_ concava soleant et limite frugum Typhoea omnique:
 que et et sono meum. Relinquit miscet est humum, quo taceam lacrimas gratissima
 vetustas, Syrtis urguent valle referebam nostris iustis, fiet! Deos per totidem
 agris! Unumque incursat, dedere Libycas sensit; hac horto Lucifero dissaepserat
