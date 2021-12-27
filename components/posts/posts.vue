@@ -4,10 +4,16 @@
       <nuxt-link :to="`/${post.slug}`" class="card card--clickable">
         <template v-if="post.cover">
           <span class="flex-1">
-            <h3 class="card-title">{{ post.title }} ({{score(post)}})</h3>
+            <h3 class="card-title">{{ post.title }} (★ {{ score(post) }})</h3>
             <img v-if="post.cover" class="cover-image" :src="post.cover" />
-            <h6 class="inline-block py-1 px-2 mr-1 mt-2 bg-gray text-white text-sm font-medium rounded-sm">
+            <h6 class="inline-block py-1 px-2 mr-1 mt-2 kind text-white text-sm font-medium rounded-sm">
+              {{ post.kind }}
+            </h6>
+            <h6 class="inline-block py-1 px-2 mr-1 mt-2 category text-white text-sm font-medium rounded-sm">
               {{ post.category }}
+            </h6>
+            <h6 class="inline-block py-1 px-2 mr-1 mt-2 category text-white text-sm font-medium rounded-sm">
+              {{ post.sub_category }}
             </h6>
           </span>
         </template>
@@ -104,8 +110,14 @@ export default {
         .catch((err) => console.error(err) || [])
     },
     score(post) {
-      return score(post)
-    }
+      // iterate over the seen_by field and get the sum of the number after the * from the seen_by field
+      let score = 0
+      post.seen_by.forEach((seen) => {
+        score += parseInt(seen.split('*')[1])
+      })
+      // divide the sum by the length of the seen_by field
+      return score / post.seen_by.length
+    },
   },
 }
 </script>
@@ -125,10 +137,19 @@ export default {
   border: 0;
 }
 .cards .card .cover-image {
-  width: 100%;
   margin: 0;
+  width: 100%;
+  max-height: 800px;
 }
 .cards li {
   margin-top: 0;
+}
+
+.kind {
+  background-color: rgb(182, 182, 15);
+}
+
+.category {
+  background-color: rgb(169, 76, 192);
 }
 </style>
