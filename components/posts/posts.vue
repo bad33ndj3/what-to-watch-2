@@ -62,7 +62,6 @@ export default {
     search: {
       type: String,
       default: '',
-      validator: (val) => val.length > 0,
     },
   },
   data() {
