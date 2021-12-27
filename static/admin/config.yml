@@ -53,43 +53,47 @@ collections:
           name: 'kind',
           widget: 'select',
           default: 'serie',
-          options: [
-            { label: 'Movie', value: 'movie' }, 
-            { label: 'Serie', value: 'serie' },
-            { label: 'Anime', value: 'anime' }
-          ],
+          options:
+            [
+              { label: 'Movie', value: 'movie' },
+              { label: 'Serie', value: 'serie' },
+              { label: 'Anime', value: 'anime' },
+            ],
         }
       - {
           label: 'Series categorie',
           name: 'category',
           widget: 'select',
           default: 'action',
-          options: [
-            { label: 'Action', value: 'action' }, 
-            { label: 'Horror', value: 'horror' },
-            { label: 'Romance', value: 'romance' },
-            { label: 'Drama', value: 'drama' },
-            { label: 'Comedy', value: 'comdey' },
-            { label: 'Crime', value: 'crime' },
-            { label: 'Science-Fiction', value: 'science-fiction' },
-          ],
-      }
+          options:
+            [
+              { label: 'Action', value: 'action' },
+              { label: 'Horror', value: 'horror' },
+              { label: 'Romance', value: 'romance' },
+              { label: 'Drama', value: 'drama' },
+              { label: 'Comedy', value: 'comdey' },
+              { label: 'Crime', value: 'crime' },
+              { label: 'Science-Fiction', value: 'science-fiction' },
+            ],
+        }
       - {
           label: 'Series Subcategorie',
           name: 'sub_category',
           widget: 'select',
           default: 'animals',
-          options: [
-            { label: 'Action', value: 'action' }, 
-            { label: 'Horror', value: 'horror' },
-            { label: 'Romance', value: 'romance' },
-            { label: 'Drama', value: 'drama' },
-            { label: 'Comedy', value: 'comdey' },
-            { label: 'Crime', value: 'crime' },
-            { label: 'Science-Fiction', value: 'science-fiction' },
-          ],
-      }
+          options:
+            [
+              { label: 'Action', value: 'action' },
+              { label: 'Horror', value: 'horror' },
+              { label: 'Romance', value: 'romance' },
+              { label: 'Drama', value: 'drama' },
+              { label: 'Comedy', value: 'comdey' },
+              { label: 'Crime', value: 'crime' },
+              { label: 'Science-Fiction', value: 'science-fiction' },
+            ],
+        }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'IMDB ID', name: 'id', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
       - {

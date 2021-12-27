@@ -8,19 +8,19 @@
       <article>
         <img v-if="post.cover" class="cover-image" :src="post.cover" />
         <!-- <h6 class="inline py-1 px-2 mr-1 bg-gray text-white text-sm font-medium rounded-sm">{{ post.category }}</h6> -->
-        <h1 class="">{{ post.title }}</h1>
-        <p class="mt-1 mb-8 text-primary-600 dark:text-primary-400">{{ post.description }}</p>
+        <h2>{{ show.title }}</h2>
+        <p style="margin-bottom: 0.5rem">
+          <em>Created {{ show.dateStr }}</em>
+        </p>
         <nuxt-content :document="post" />
-        <div v-if="post.gallery" class="nuxt-content">
-          <img v-for="image in post.gallery" :key="image.id" class="image" :src="image" />
-        </div>
+        <p><a class="link-to-wiki" :href="'www.imdb.com/title/' + show.url">Read more &RightArrow;</a></p>
+        <h3>Genres</h3>
       </article>
     </section>
   </main>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
 
 <script>
 export default {
