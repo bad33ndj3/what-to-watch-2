@@ -8,6 +8,6 @@ module.exports = {
     'vue/no-unused-vars': 'warn',
     'no-unused-vars': 'warn',
     'vue/multi-word-component-names': 'off',
-    'vue/no-deprecated-v-on-native-modifier': 'warn'
+    'vue/no-deprecated-v-on-native-modifier': 'warn',
   },
 }

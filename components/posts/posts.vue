@@ -1,6 +1,6 @@
 <template>
-  <ul v-if="posts.length > 0" class="cards">
-    <li v-for="(post, index) in posts" :key="index">
+  <ul v-if="amount > 0" class="cards">
+    <li v-for="(post, index) in filteredPosts" :key="index">
       <nuxt-link :to="`/${post.slug}`" class="card card--clickable">
         <template v-if="postType === 'series'">
           <span class="flex-1">
@@ -77,6 +77,11 @@ export default {
       }),
       validator: (obj) => typeof obj.key === 'string' && typeof obj.direction === 'string',
     },
+    search: {
+      type: String,
+      default: '',
+      validator: (val) => val.length > 0,
+    }
   },
   data() {
     return {
@@ -88,6 +93,11 @@ export default {
     placeholderClasses() {
       const classes = ['w-full', 'w-2/3', 'w-5/6']
       return [...Array.from({ length: this.amount }, (v, i) => classes[i % classes.length])] // repeats classes after one another
+    },
+    filteredPosts() {
+      return this.posts.filter((post) => {
+        return post.title.toLowerCase().includes(this.search.toLowerCase())
+      })
     },
   },
   async mounted() {
