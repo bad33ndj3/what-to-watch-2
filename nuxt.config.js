@@ -10,12 +10,16 @@ export default {
     fallback: true,
   },
   // ? The env Property: https://nuxtjs.org/api/configuration-env/
-  env: {
+  publicRuntimeConfig: {
     url:
       process.env.NODE_ENV === 'production'
         ? process.env.URL || 'http://createADotEnvFileAndSetURL'
         : 'http://localhost:3000',
     lang: SITE_INFO.sitelang || 'en-US',
+    imdbToken: process.env.IMDB_TOKEN || '',
+  },
+  privateRuntimeConfig: {
+    apiSecret: process.env.API_SECRET,
   },
   /*
    ** Headers of the page
@@ -96,7 +100,14 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
+    extend(config, ctx) {
+      if (ctx.isDev) {
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+      }
+      config.node = {
+        fs: 'empty',
+      }
+    },
   },
   /*
    ** Custom additions configuration

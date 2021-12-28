@@ -18,7 +18,11 @@
   "license": "MIT",
   "dependencies": {
     "@nuxt/content": "^1.15.1",
-    "nuxt": "^2.15.8"
+    "fs": "^0.0.1-security",
+    "net": "^1.0.2",
+    "nuxt": "^2.15.8",
+    "omdbapi": "^3.0.0",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.1.1",
@@ -28,8 +32,8 @@
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "netlify-cli": "^8.4.2",
     "eslint-plugin-vue": "^8.2.0",
+    "netlify-cli": "^8.4.2",
     "nuxt-purgecss": "^1.0.0",
     "postcss": "^8.4.5",
     "postcss-easing-gradients": "^3.0.1",
