@@ -3,7 +3,7 @@
     <section v-if="posts" class="w-full max-w-5xl mx-auto">
       <h1 class="title">Series</h1>
       <div id="search-wrapper" class="search-wrapper">
-        <input v-model="search" type="text" placeholder="Search title.." />
+        <input v-model="search" type="text" id="search-bar" placeholder="Search title.." />
       </div>
       <posts post-type="series" :amount="10" :search="search" />
     </section>
@@ -15,6 +15,15 @@
   margin-top: 20px;
   margin-bottom: 10px;
   float: right;
+}
+
+@media only screen and (max-width: 800px) {
+  #search-wrapper input {
+    width: 100%;
+  }
+  #search-wrapper {
+    width: 100%;
+  }
 }
 </style>
 

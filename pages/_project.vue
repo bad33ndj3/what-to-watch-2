@@ -17,15 +17,51 @@
               >
             </h5>
           </h2>
+          {{ post.description }}
         </div>
         <nuxt-content :document="post" />
-        <p>kind: {{ post.kind }}</p>
-        <p>category: {{ post.category }}</p>
-        <p>sub_category: {{ post.sub_category }}</p>
-        <p>score: {{ score(post) }}</p>
+        <table>
+          <tr>
+            <td>Kind:</td>
+            <b
+              ><i
+                ><td>{{ post.kind }}</td></i
+              ></b
+            >
+          </tr>
+          <tr>
+            <td>Main Category:&nbsp;&nbsp;</td>
+            <b
+              ><i
+                ><td></td>
+                <td>{{ post.category }}</td></i
+              ></b
+            >
+          </tr>
+          <tr>
+            <td>Sub Category:&nbsp;&nbsp;</td>
+            <b
+              ><i
+                ><td></td>
+                <td>{{ post.sub_category }}</td></i
+              ></b
+            >
+          </tr>
+          <tr>
+            <td>Score:</td>
+            <b
+              ><i
+                ><td></td>
+                <td>{{ score(post) }}/10</td></i
+              ></b
+            >
+          </tr>
+        </table>
+
+        <br />
         <h3>Seen by</h3>
         <ul>
-          <li v-for="seen in post.seen_by" :key="seen">- {{ seen }}</li>
+          <li v-for="seen in post.seen_by" :key="seen">- {{ scoreStar(seen) }}</li>
         </ul>
       </article>
     </section>
@@ -50,6 +86,10 @@ export default {
   methods: {
     score(post) {
       return score(post)
+    },
+    scoreStar(seen) {
+      let splitSeen = seen.split('*')
+      return splitSeen[0] + '(★ ' + parseInt(splitSeen[1]) + ')'
     },
   },
 }
