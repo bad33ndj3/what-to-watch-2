@@ -30,25 +30,52 @@
             >
           </tr>
           <tr>
-            <td>Main Category:&nbsp;&nbsp;</td>
+            <td>Genre:&nbsp;&nbsp;</td>
             <b
               ><i
                 ><td></td>
-                <td>{{ post.category }}</td></i
+                <td>{{ genresToString(post.imdb.genre) }}</td></i
               ></b
             >
           </tr>
           <tr>
-            <td>Sub Category:&nbsp;&nbsp;</td>
+            <td>Year:&nbsp;&nbsp;</td>
             <b
               ><i
                 ><td></td>
-                <td>{{ post.sub_category }}</td></i
+                <td>{{ post.imdb.year }}</td></i
               ></b
             >
           </tr>
           <tr>
-            <td>Score:</td>
+            <td>Awards:&nbsp;&nbsp;</td>
+            <b
+              ><i
+                ><td></td>
+                <td>{{ post.imdb.awards }}</td></i
+              ></b
+            >
+          </tr>
+          <tr>
+            <td>Total time :&nbsp;&nbsp;</td>
+            <b
+              ><i
+                ><td></td>
+                <td>{{ post.imdb.runtime }}</td></i
+              ></b
+            >
+          </tr>
+          <tr>
+            <td>IMDB Score:</td>
+            <b
+              ><i
+                ><td></td>
+                <td>{{ post.imdb.imdbrating }}/10</td></i
+              ></b
+            >
+          </tr>
+          <tr>
+            <td>Our Score:</td>
             <b
               ><i
                 ><td></td>
@@ -74,13 +101,18 @@
 import { score } from '~/utils/globals.js'
 
 export default {
-  async asyncData({ $content, params, error }) {
+  async asyncData({ $content, params, error, $config }) {
+    const omdb = new (require('omdbapi'))($config.imdbToken)
+
     let post
     try {
       post = await $content('series', params.project).fetch()
+      let res = await omdb.get({ id: post.id })
+      post.imdb = res
     } catch (e) {
       error({ message: 'Series not found' })
     }
+
     return { post }
   },
   methods: {
@@ -90,6 +122,11 @@ export default {
     scoreStar(seen) {
       let splitSeen = seen.split('*')
       return splitSeen[0] + '(★ ' + parseInt(splitSeen[1]) + ')'
+    },
+    genresToString(genres) {
+      return Object.keys(genres)
+        .map((key) => `${genres[key]}`)
+        .join(', ')
     },
   },
 }
