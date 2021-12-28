@@ -3,7 +3,7 @@
     <section v-if="posts" class="w-full max-w-5xl mx-auto">
       <h1 class="title">Series</h1>
       <div id="search-wrapper" class="search-wrapper">
-        <input v-model="search" type="text" id="search-bar" placeholder="Search title.." />
+        <input id="search-bar" v-model="search" type="text" placeholder="Search title.." />
       </div>
       <posts post-type="series" :amount="10" :search="search" />
     </section>
