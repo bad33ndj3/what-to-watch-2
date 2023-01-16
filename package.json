@@ -33,7 +33,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.2.0",
-    "netlify-cli": "^8.4.2",
+    "netlify-cli": "^12.7.2",
     "nuxt-purgecss": "^1.0.0",
     "postcss": "^8.4.5",
     "postcss-easing-gradients": "^3.0.1",
